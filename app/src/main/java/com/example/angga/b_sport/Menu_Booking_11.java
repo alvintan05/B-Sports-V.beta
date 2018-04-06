@@ -5,13 +5,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 public class Menu_Booking_11 extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
+    Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,21 @@ public class Menu_Booking_11 extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         //oncreate end
+
+        //toolbar
+        tb = (android.support.v7.widget.Toolbar)findViewById(R.id.tb_menu_booking);
+        setSupportActionBar(tb);
+
+        //back_button
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 
     //Mulai Adapter

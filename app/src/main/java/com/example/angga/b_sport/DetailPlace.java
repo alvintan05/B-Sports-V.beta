@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
 
+import com.example.angga.b_sport.fragments.FragmentSingle;
+
 public class DetailPlace extends AppCompatActivity {
 
     Button book_now;
@@ -35,7 +37,7 @@ public class DetailPlace extends AppCompatActivity {
         book_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(DetailPlace.this, PilihBooking.class);
+                Intent pindah = new Intent(DetailPlace.this, PilihLapang.class);
                 startActivity(pindah);
             }
         });

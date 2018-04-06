@@ -49,6 +49,12 @@ public class Notifikasi_Owner_19 extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
+    }
+
     private void initDataset(){
 
         /**

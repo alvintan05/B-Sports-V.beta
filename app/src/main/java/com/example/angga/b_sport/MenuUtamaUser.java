@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MenuUtamaUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +27,7 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
     NavigationView nv;
     ViewPager viewPager;
     TabLayout tl;
+    ImageView userimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,31 +42,29 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         //Mendefinisikan Navigation Drawer
 
         dl = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ab = new ActionBarDrawerToggle(this,dl,tb,R.string.open, R.string.close);
+        ab = new ActionBarDrawerToggle(this, dl, tb, R.string.open, R.string.close);
         dl.addDrawerListener(ab);
         ab.syncState();
-        nv = (NavigationView)findViewById(R.id.navigation);
+        nv = (NavigationView) findViewById(R.id.navigation);
         nv.setNavigationItemSelectedListener(this);
 
         //Mendefiniskan Tab Layout
-        viewPager = (ViewPager)findViewById(R.id.vp);
-        tl = (TabLayout)findViewById(R.id.tl);
+        viewPager = (ViewPager) findViewById(R.id.vp);
+        tl = (TabLayout) findViewById(R.id.tl);
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tl.setupWithViewPager(viewPager);
+
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.beranda:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.search:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.recomend:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.booking:
 
@@ -71,16 +72,13 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
                 startActivity(book);
 
                 break;
-            case R.id.topup:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.setting:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+            case R.id.about:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.keluar:
                 Intent keluar = new Intent(MenuUtamaUser.this, LoginMenu.class);
                 startActivity(keluar);
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -99,9 +97,10 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         @Override
         public Fragment getItem(int position) {
             Fragment f = null;
-            if(position == 0){
+            if (position == 0) {
                 f = new FragMaps();
-            }if(position == 1){
+            }
+            if (position == 1) {
                 f = new GridPlace();
             }
 
@@ -116,10 +115,10 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         @Override
         public CharSequence getPageTitle(int position) {
             String name = null;
-            if(position == 0){
+            if (position == 0) {
                 name = "Maps";
             }
-            if(position == 1){
+            if (position == 1) {
                 name = "Grid";
             }
 

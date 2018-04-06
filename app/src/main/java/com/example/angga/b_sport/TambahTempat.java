@@ -54,8 +54,8 @@ public class TambahTempat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(TambahTempat.this)
-                        .setTitle("Tersedia")
-                        .setMessage("Bokingan Anda Tersedia!")
+                        .setTitle("Disimpan")
+                        .setMessage("Data Anda Tersimpan!!")
                         .setCancelable(false)
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override
@@ -68,6 +68,12 @@ public class TambahTempat extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 
     @Override

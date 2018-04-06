@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
     Button ubah;
     ImageButton tambah;
     RelativeLayout des;
+    ImageView ownerimage;
+
     int vis = 0;
 
 
@@ -47,16 +50,16 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
         //Mendefinisikan Navigation Drawer
 
         dl = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ab = new ActionBarDrawerToggle(this,dl,tb,R.string.open, R.string.close);
+        ab = new ActionBarDrawerToggle(this, dl, tb, R.string.open, R.string.close);
         dl.addDrawerListener(ab);
         ab.syncState();
-        nv = (NavigationView)findViewById(R.id.navigation);
+        nv = (NavigationView) findViewById(R.id.navigation);
         nv.setNavigationItemSelectedListener(this);
 
         des = (RelativeLayout) findViewById(R.id.grid);
 
         des.setVisibility(View.GONE);
-        if(vis == 1){
+        if (vis == 1) {
             des.setVisibility(View.VISIBLE);
         }
 
@@ -64,7 +67,7 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
         ubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(MenuUtamaOwner.this, UbahDeskripsi.class );
+                Intent pindah = new Intent(MenuUtamaOwner.this, UbahDeskripsi.class);
                 startActivity(pindah);
             }
         });
@@ -72,43 +75,41 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
         tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class );
+                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class);
                 startActivity(pindah);
             }
         });
+
 
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.beranda:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.kelola:
                 Intent kelola = new Intent(MenuUtamaOwner.this, Kelola_Lapangan_Owner_16.class);
                 startActivity(kelola);
-                Toast.makeText(getApplicationContext(),"Harap Tunggu",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Harap Tunggu", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.notif:
-                Intent notifikasi = new Intent(MenuUtamaOwner.this, Notifikasi_Owner_19.class );
+                Intent notifikasi = new Intent(MenuUtamaOwner.this, Notifikasi_Owner_19.class);
                 startActivity(notifikasi);
-                Toast.makeText(getApplicationContext(),"Harap Tunggu",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Harap Tunggu", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tambah:
-                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class );
+                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class);
                 startActivity(pindah);
                 break;
-            case R.id.topup:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.setting:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+            case R.id.about:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.keluar:
                 Intent keluar = new Intent(MenuUtamaOwner.this, LoginMenu.class);
                 startActivity(keluar);
-                Toast.makeText(getApplicationContext(),"Anda Akan Keluar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Anda Akan Keluar", Toast.LENGTH_SHORT).show();
                 break;
         }
 

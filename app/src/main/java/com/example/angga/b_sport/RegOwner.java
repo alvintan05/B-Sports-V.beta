@@ -2,10 +2,12 @@ package com.example.angga.b_sport;
 
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -114,9 +116,8 @@ public class RegOwner extends Fragment {
 
     public void resultSimpan(String HasilProses){
         if(HasilProses.trim().equalsIgnoreCase("OK")){
-            Toast.makeText(getActivity(), "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
-            Intent a = new Intent(getActivity(), LoginOwner.class);
-            startActivity(a);
+            //dialogbox
+            showdialog();
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(getActivity(), "Pendaftaran Gagal Coba Kembali", Toast.LENGTH_SHORT).show();
         }else{
@@ -166,6 +167,32 @@ public class RegOwner extends Fragment {
         }
 
         return result;
+    }
+
+    public void showdialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Pendaftaran Berhhasil");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("               Silahkan Login !")
+                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent a = new Intent(getActivity(), LoginOwner.class);
+                        startActivity(a);
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 
 }
